@@ -48,6 +48,7 @@ export default defineComponent({
 }
 
 .modal__wrapper {
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
