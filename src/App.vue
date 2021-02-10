@@ -20,27 +20,12 @@
             </template>
           </modals>
           <!-- Second modal -->
-          <button
-            @click="modalSecond.show = !modalSecond.show"
-            class="btn btnPrimary"
-          >
+          <button @click="show = !show" class="btn btnPrimary">
             Show modal with form
           </button>
-          <modals
-            v-show="modalSecond.show"
-            title="Modal with form"
-            @close="modalSecond.show = false"
-          >
+          <modals v-show="show" title="Modal with form" @close="show = false">
             <template v-slot:body>
-              <form>
-                <label>Name:</label>
-                <input type="text" v-modal="modalSecond.name" />
-                <label>Email:</label>
-                <input type="text" v-modal="modalSecond.email" />
-                <button class="btn btnPrimary">
-                  Submit!
-                </button>
-              </form>
+              <forms></forms>
             </template>
           </modals>
         </div>
@@ -52,21 +37,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import modals from "@/components/Modal.vue";
+import forms from "@/components/Form.vue";
 import { App } from "./App";
 
 export default defineComponent({
   name: "App",
   components: {
-    modals
+    modals,
+    forms
   },
   data() {
     return {
       modalFirst: false,
-      modalSecond: {
-        show: false,
-        name: "",
-        email: ""
-      }
+      show: false
     } as App;
   }
 });
